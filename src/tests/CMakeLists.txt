@@ -8,3 +8,4 @@ include(Tornado.cmake)
 set_tornado(pontoon)
 
 target_link_libraries(pontoon_test PUBLIC pontoon)
+add_test(NAME PontoonTests COMMAND pontoon_test)
