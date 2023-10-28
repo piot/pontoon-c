@@ -1,5 +1,7 @@
-![logo](docs/images/pontoon.png)
+<h1 align="center">
+    <img src="docs/images/pontoon.png">
+</h1>
 
-# Pontoon
+## Introduction
 
 Simplified consensus algorithm.

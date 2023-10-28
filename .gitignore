@@ -10,3 +10,4 @@ Testing/
 CTestTestfile.cmake
 *.a
 pontoon_test
+build/
