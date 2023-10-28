@@ -6,14 +6,16 @@
 
 Simplified consensus algorithm. Inspired by algorithms like Raft, Paxos and Bully.
 
-A node can either be a Supporter, Candidate or Leader.
+A citizen can either be a Supporter, Candidate or Leader.
 
-The leader sends frequent heartbeats to all other nodes in the session.
+The leader sends heart beats to all citizen at regular intervals.
 
-If a node hasn't heard from the leader in a while, it proclaims itself as a candidate for a new term and sends out an election request to vote for them.
+If a supporter hasn't heard from the leader in a while, it proclaims itself as a candidate for a new term and sends out an election request to all other citizens to vote for them.
 
-A node receiving an election request from a candidate, votes yes or no. It votes yes only if the proclaimed candidate have the same, or very close, to their own knowledge. The node is also only allowed to vote for one candidate in each term, so if it has already put in a ballot for this term, it has to vote no even if the candidate was worthy.
+A citizen receiving an election request from a candidate, votes *yes* or *no*. It votes yes only if the proclaimed candidate have the same, or very close, to their own knowledge. The citizen is also only allowed to vote yes for a single candidate in each election.
 
-The candidate waits for a yes vote from all nodes. If *all* nodes vote yes, the candidate turns itself into a leader. If someone votes no or a timeout happens, it goes back to being a supporter.
+The candidate waits for a yes vote from all citizens. If *all* citizens vote yes, the candidate turns itself into a leader. If someone votes no or has not received all votes within a certain time, the candidate goes back to being a supporter.
 
 As a candidate, if any newer term is detected, it accepts this fact immediately and steps down to a supporter.
+
+All timeouts are truly random within a range, to avoid that the same events repeats itself.
