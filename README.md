@@ -12,7 +12,7 @@ The leader sends frequent heartbeats to all other nodes in the session.
 
 If a node hasn't heard from the leader in a while, it proclaims itself as a candidate for a new term and sends out an election request to vote for them.
 
-A node receiving an election request from a candidate, votes yes or no. It votes yes only if the proclaimed candidate have the same, or very close, to their own knowledge.
+A node receiving an election request from a candidate, votes yes or no. It votes yes only if the proclaimed candidate have the same, or very close, to their own knowledge. The node is also only allowed to vote for one candidate in each term, so if it has already put in a ballot for this term, it has to vote no even if the candidate was worthy.
 
 The candidate waits for a yes vote from all nodes. If *all* nodes vote yes, the candidate turns itself into a leader. If someone votes no or a timeout happens, it goes back to being a supporter.
 
